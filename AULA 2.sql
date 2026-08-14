@@ -1,3 +1,5 @@
+USE BancoPedidos;
+
 SELECT *
 FROM CLIENTE;
 
@@ -12,3 +14,51 @@ SELECT NOME, CIDADE, UF
 FROM CLIENTE
 WHERE CIDADE <= "SAO PAULO";
 
+SELECT *
+FROM PRODUTO
+WHERE VALUNIT BETWEEN 1.00 AND 2.00
+ORDER BY VALUNIT DESC;
+
+SELECT *
+FROM PRODUTO
+WHERE VALUNIT BETWEEN 1.00 AND 2.00
+ORDER BY VALUNIT ASC;
+
+SELECT DESCRICAOPRODUTO, VALUNIT
+FROM PRODUTO
+WHERE VALUNIT BETWEEN 1.00 AND 2.00
+ORDER BY 1 ASC;
+
+SELECT *
+FROM CLIENTE
+ORDER BY UF, CIDADE, NOME;
+
+SELECT *
+FROM CLIENTE
+ORDER BY UF DESC, CIDADE ASC, NOME DESC;
+
+SELECT sum(salariofixo) / count(*)
+from vendedor;
+
+select count(*)
+from vendedor;
+
+select min(salariofixo), max(salariofixo), avg(salariofixo), sum(salariofixo)
+from vendedor;
+
+select count(ie)
+from cliente;
+
+select count(*)
+from cliente
+where IE is null;
+
+
+SELECT CIDADE, COUNT(*)
+FROM CLIENTE
+GROUP BY CIDADE;
+
+SELECT UF, COUNT(*)
+FROM CLIENTE
+GROUP BY UF
+ORDER BY COUNT(*) DESC;
